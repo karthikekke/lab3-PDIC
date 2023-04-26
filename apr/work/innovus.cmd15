@@ -1,0 +1,253 @@
+#######################################################
+#                                                     
+#  Innovus Command Logging File                     
+#  Created on Tue Apr 25 22:07:03 2023                
+#                                                     
+#######################################################
+
+#@(#)CDS: Innovus v19.16-s053_1 (64bit) 08/31/2020 13:16 (Linux 2.6.32-431.11.2.el6.x86_64)
+#@(#)CDS: NanoRoute 19.16-s053_1 NR200827-1939/19_16-UB (database version 18.20, 510.7.1) {superthreading v1.53}
+#@(#)CDS: AAE 19.16-s019 (64bit) 08/31/2020 (Linux 2.6.32-431.11.2.el6.x86_64)
+#@(#)CDS: CTE 19.16-s019_1 () Aug 22 2020 00:37:42 ( )
+#@(#)CDS: SYNTECH 19.16-s010_1 () Aug 17 2020 09:10:13 ( )
+#@(#)CDS: CPE v19.16-s038
+#@(#)CDS: IQuantus/TQuantus 19.1.3-s268 (64bit) Mon Aug 10 22:57:12 PDT 2020 (Linux 2.6.32-431.11.2.el6.x86_64)
+
+alias fs set top_design fifo1_sram
+alias f set top_design fifo1
+alias o set top_design ORCA_TOP
+alias e set top_design ExampleRocketSystem
+set_table_style -name report_timing -max_widths { 8,6,23,70} -no_frame_fix_width
+set_global report_timing_format  {delay arrival slew load fanout cell hpin}
+set_global _enable_mmmc_by_default_flow      $CTE::mmmc_default
+suppressMessage ENCEXT-2799
+win
+o
+set_global _enable_mmmc_by_default_flow      $CTE::mmmc_default
+set search_path {}
+set init_lef_file {../../cadence_cap_tech/tech.lef saed32nm_hvt_1p9m.lef saed32nm_rvt_1p9m.lef saed32nm_lvt_1p9m.lef saed32sram.lef}
+set init_mmmc_file mmmc.tcl
+set init_design_netlisttype Verilog
+set init_verilog ../../syn/outputs/ORCA_TOP.genus_phys.vg
+set init_top_cell ORCA_TOP
+set init_pwr_net VDD
+set init_gnd_net VSS
+init_design
+defIn ../outputs/ORCA_TOP.floorplan.innovus.def
+add_tracks -honor_pitch
+defIn ../../syn/outputs/ORCA_TOP.genus.scan.def
+read_power_intent ../../syn/outputs/ORCA_TOP.genus.upf -1801
+commit_power_intent
+modifyPowerDomainAttr PD_RISC_CORE -box 505 10 810 265
+setNanoRouteMode -drouteEndIteration 10
+set_ccopt_property target_max_trans 0.3ns
+setNanoRouteMode -drouteEndIteration 5
+setNanoRouteMode -routeWithViaOnlyForMacroCellPin false
+setNanoRouteMode -routeWithViaOnlyForStandardCellPin 1:1
+setOptMode -usefulSkew false
+setOptMode -usefulSkewCCOpt none
+setOptMode -usefulSkewPostRoute false
+setOptMode -usefulSkewPreCTS false
+all_constraint_modes -active
+set_interactive_constraint_modes [all_constraint_modes -active]
+set_units -time ns -resistance MOhm -capacitance fF -voltage V -current uA
+setDontUse *DELLN* true
+createBasicPathGroups -expanded
+saveDesign ORCA_TOP_floorplan.innovus
+setOptMode -usefulSkew false
+setOptMode -usefulSkewCCOpt none
+setOptMode -usefulSkewPostRoute false
+setOptMode -usefulSkewPreCTS false
+create_library_set -name worst_libs_vddh -timing {
+update_delay_corner -name worst_corner -power_domain PD_RISC_CORE -library_set worst_libs_vddh
+setEcoMode -batchMode true
+ecoChangeCell -inst Xecutng_Instrn_0__UPF_LS -cell LSDNSSX8_LVT
+ecoChangeCell -inst Xecutng_Instrn_1__UPF_LS -cell LSDNSSX8_LVT
+ecoChangeCell -inst Xecutng_Instrn_2__UPF_LS -cell LSDNSSX8_LVT
+ecoChangeCell -inst Xecutng_Instrn_3__UPF_LS -cell LSDNSSX4_LVT
+ecoChangeCell -inst Xecutng_Instrn_4__UPF_LS -cell LSDNSSX4_LVT
+ecoChangeCell -inst Xecutng_Instrn_5__UPF_LS -cell LSDNSSX8_LVT
+ecoChangeCell -inst Xecutng_Instrn_6__UPF_LS -cell LSDNSSX8_LVT
+ecoChangeCell -inst Xecutng_Instrn_7__UPF_LS -cell LSDNSSX8_LVT
+ecoChangeCell -inst Xecutng_Instrn_8__UPF_LS -cell LSDNSSX8_LVT
+ecoChangeCell -inst Xecutng_Instrn_9__UPF_LS -cell LSDNSSX8_LVT
+ecoChangeCell -inst Xecutng_Instrn_10__UPF_LS -cell LSDNSSX8_LVT
+ecoChangeCell -inst Xecutng_Instrn_11__UPF_LS -cell LSDNSSX8_LVT
+ecoChangeCell -inst Xecutng_Instrn_12__UPF_LS -cell LSDNSSX8_LVT
+ecoChangeCell -inst Xecutng_Instrn_14__UPF_LS -cell LSDNSSX8_LVT
+ecoChangeCell -inst Xecutng_Instrn_15__UPF_LS -cell LSDNSSX8_LVT
+ecoChangeCell -inst Xecutng_Instrn_16__UPF_LS -cell LSDNSSX8_LVT
+ecoChangeCell -inst Xecutng_Instrn_17__UPF_LS -cell LSDNSSX8_LVT
+ecoChangeCell -inst Xecutng_Instrn_18__UPF_LS -cell LSDNSSX8_LVT
+ecoChangeCell -inst Xecutng_Instrn_19__UPF_LS -cell LSDNSSX8_LVT
+ecoChangeCell -inst Xecutng_Instrn_20__UPF_LS -cell LSDNSSX8_LVT
+ecoChangeCell -inst Xecutng_Instrn_21__UPF_LS -cell LSDNSSX8_LVT
+ecoChangeCell -inst Xecutng_Instrn_22__UPF_LS -cell LSDNSSX8_LVT
+ecoChangeCell -inst Xecutng_Instrn_23__UPF_LS -cell LSDNSSX8_LVT
+ecoChangeCell -inst Xecutng_Instrn_24__UPF_LS -cell LSDNSSX4_LVT
+ecoChangeCell -inst Xecutng_Instrn_25__UPF_LS -cell LSDNSSX8_LVT
+ecoChangeCell -inst Xecutng_Instrn_26__UPF_LS -cell LSDNSSX4_LVT
+ecoChangeCell -inst Xecutng_Instrn_27__UPF_LS -cell LSDNSSX4_LVT
+ecoChangeCell -inst Xecutng_Instrn_28__UPF_LS -cell LSDNSSX8_LVT
+ecoChangeCell -inst Xecutng_Instrn_30__UPF_LS -cell LSDNSSX4_LVT
+ecoChangeCell -inst Xecutng_Instrn_31__UPF_LS -cell LSDNSSX8_LVT
+ecoChangeCell -inst PSW_2__UPF_LS -cell LSDNSSX8_LVT
+ecoChangeCell -inst PSW_3__UPF_LS -cell LSDNSSX2_LVT
+ecoChangeCell -inst PSW_4__UPF_LS -cell LSDNSSX8_LVT
+ecoChangeCell -inst PSW_6__UPF_LS -cell LSDNSSX4_LVT
+ecoChangeCell -inst PSW_8__UPF_LS -cell LSDNSSX4_LVT
+ecoChangeCell -inst PSW_9__UPF_LS -cell LSDNSSX4_LVT
+ecoChangeCell -inst PSW_10__UPF_LS -cell LSDNSSX4_LVT
+ecoChangeCell -inst RESULT_DATA_0__UPF_LS -cell LSDNSSX8_LVT
+ecoChangeCell -inst RESULT_DATA_1__UPF_LS -cell LSDNSSX8_LVT
+ecoChangeCell -inst RESULT_DATA_2__UPF_LS -cell LSDNSSX8_LVT
+ecoChangeCell -inst RESULT_DATA_3__UPF_LS -cell LSDNSSX8_LVT
+ecoChangeCell -inst RESULT_DATA_4__UPF_LS -cell LSDNSSX8_LVT
+ecoChangeCell -inst RESULT_DATA_5__UPF_LS -cell LSDNSSX8_LVT
+ecoChangeCell -inst RESULT_DATA_6__UPF_LS -cell LSDNSSX8_LVT
+ecoChangeCell -inst RESULT_DATA_7__UPF_LS -cell LSDNSSX8_LVT
+ecoChangeCell -inst RESULT_DATA_8__UPF_LS -cell LSDNSSX8_LVT
+ecoChangeCell -inst RESULT_DATA_9__UPF_LS -cell LSDNSSX8_LVT
+ecoChangeCell -inst RESULT_DATA_10__UPF_LS -cell LSDNSSX8_LVT
+ecoChangeCell -inst RESULT_DATA_11__UPF_LS -cell LSDNSSX8_LVT
+ecoChangeCell -inst RESULT_DATA_12__UPF_LS -cell LSDNSSX8_LVT
+ecoChangeCell -inst RESULT_DATA_13__UPF_LS -cell LSDNSSX8_LVT
+ecoChangeCell -inst RESULT_DATA_14__UPF_LS -cell LSDNSSX8_LVT
+ecoChangeCell -inst RESULT_DATA_15__UPF_LS -cell LSDNSSX8_LVT
+ecoChangeCell -inst EndOfInstrn_UPF_LS -cell LSDNSSX2_LVT
+ecoChangeCell -inst OUT_VALID_UPF_LS -cell LSDNSSX4_LVT
+ecoChangeCell -inst PSW_7__UPF_LS -cell LSDNSSX4_LVT
+ecoChangeCell -inst Xecutng_Instrn_13__UPF_LS -cell LSDNSSX8_LVT
+ecoChangeCell -inst Xecutng_Instrn_29__UPF_LS -cell LSDNSSX8_LVT
+ecoChangeCell -inst STACK_FULL_UPF_LS -cell LSDNSSX2_LVT
+ecoChangeCell -inst Rd_Instr_UPF_LS -cell LSDNSSX2_LVT
+ecoChangeCell -inst PSW_5__UPF_LS -cell LSDNSSX4_LVT
+setEcoMode -batchMode false
+place_opt_design
+redirect -tee ../reports/ORCA_TOP.innovus.place.congestion.2d.rpt { reportCongestion -hotSpot -overflow -includeBlockage }
+redirect -tee ../reports/ORCA_TOP.innovus.place.congestion.3d.rpt { reportCongestion -hotSpot -overflow -includeBlockage -3d }
+timeDesign -preCTS -prefix place -outDir ../reports/ORCA_TOP.innovus -expandedViews
+redirect -tee ../reports/ORCA_TOP.innovus.place.density.rpt { reportDensityMap }
+summaryReport -noHtml -outfile ../reports/ORCA_TOP.innovus.place.summary.rpt
+saveDesign ORCA_TOP_place.innovus
+fit
+setLayerPreference node_layer -isVisible 0
+setLayerPreference node_layer -isVisible 1
+setLayerPreference node_layer -isVisible 0
+summaryReport -noHtml -outfile summary3b.rpt
+selectModule I_SDRAM_TOP
+highlight -auto_color
+deselectAll
+selectModule I_BLENDER_1
+highlight -auto_color
+deselectAll
+selectModule I_BLENDER_0
+highlight -auto_color
+deselectAll
+selectModule I_RISC_CORE
+highlight -auto_color
+deselectAll
+selectModule I_CONTEXT_MEM
+highlight -auto_color
+deselectAll
+selectModule I_PARSER
+highlight -auto_color
+deselectAll
+selectModule I_PCI_TOP
+highlight -auto_color
+deselectAll
+selectModule I_CLOCKING
+highlight -auto_color
+deselectAll
+selectModule occ_int2
+highlight -auto_color
+deselectAll
+selectModule snps_clk_chain_1
+highlight -auto_color
+deselectAll
+report_timing -machine_readable -path_group reg2reg -max_paths 10 > foo.mtarpt 
+setLayerPreference node_layer -isVisible 1
+setLayerPreference node_layer -isVisible 0
+setLayerPreference node_overlay -isVisible 1
+setLayerPreference congestH -color {#000066 #0000c9 #0053ff #00fcfa #00a953 #53a900 #f9fc00 #ff5300 #ff5858 #ffffff}
+setLayerPreference congestV -color {#000066 #0000c9 #0053ff #00fcfa #00a953 #53a900 #f9fc00 #ff5300 #ff5858 #ffffff}
+fit
+setLayerPreference node_overlay -isVisible 0
+setLayerPreference node_overlay -isVisible 1
+fit
+setLayerPreference node_overlay -isVisible 0
+setLayerPreference densityMap -isVisible 1
+setLayerPreference densityMap -color {#000066 #00006d #000074 #00007b #000082 #000089 #000090 #000097 #00009e #0000a5 #0000ac #0000b3 #0000bb #0000c2 #0000c9 #0000d0 #0000d7 #0000de #0000e5 #0000ec #0000f3 #0000fa #0005ff #0011ff #001eff #002aff #0037ff #0043ff #0050ff #005cff #0069ff #0076ff #0082ff #008fff #009bff #00a8ff #00b4ff #00c1ff #00cdff #00daff #00e7ff #00f3ff #00fefd #00f8f2 #00f2e6 #00ecda #00e6ce #00e0c2 #00dbb7 #00d5ab #00cf9f #00c993 #00c387 #00bd7c #00b770 #00b164 #00ab58 #00a54c #009f40 #009a35 #009429 #008e1d #008811 #008205 #058200 #118800 #1d8e00 #299400 #359a00 #409f00 #4ca500 #58ab00 #64b100 #70b700 #7cbd00 #87c300 #93c900 #9fcf00 #abd500 #b7db00 #c2e000 #cee600 #daec00 #e6f200 #f2f800 #fdfe00 #fff300 #ffe700 #ffda00 #ffcd00 #ffc100 #ffb400 #ffa800 #ff9b00 #ff8f00 #ff8200 #ff7600 #ff6900 #ff5c00 #ff5000 #ff4300 #ff3700 #ff2a00 #ff1e00 #ff1100 #ff0500 #ff0606 #ff1212 #ff1e1e #ff2a2a #ff3636 #ff4242 #ff4d4d #ff5959 #ff6565 #ff7171 #ff7d7d #ff8888 #ff9494 #ffa0a0 #ffacac #ffb8b8 #ffc3c3 #ffcfcf #ffdbdb #ffe7e7 #fff3f3} -stippleData 8 4 {0xaa 0x55 0xaa 0x55}
+setDensityMapMode -gridInRow 10 -threshold 0.5 -displayStep 0.05
+setLayerPreference densityMap -color {#000066 #00006d #000074 #00007b #000082 #000089 #000090 #000097 #00009e #0000a5 #0000ac #0000b3 #0000bb #0000c2 #0000c9 #0000d0 #0000d7 #0000de #0000e5 #0000ec #0000f3 #0000fa #0005ff #0011ff #001eff #002aff #0037ff #0043ff #0050ff #005cff #0069ff #0076ff #0082ff #008fff #009bff #00a8ff #00b4ff #00c1ff #00cdff #00daff #00e7ff #00f3ff #00fefd #00f8f2 #00f2e6 #00ecda #00e6ce #00e0c2 #00dbb7 #00d5ab #00cf9f #00c993 #00c387 #00bd7c #00b770 #00b164 #00ab58 #00a54c #009f40 #009a35 #009429 #008e1d #008811 #008205 #058200 #118800 #1d8e00 #299400 #359a00 #409f00 #4ca500 #58ab00 #64b100 #70b700 #7cbd00 #87c300 #93c900 #9fcf00 #abd500 #b7db00 #c2e000 #cee600 #daec00 #e6f200 #f2f800 #fdfe00 #fff300 #ffe700 #ffda00 #ffcd00 #ffc100 #ffb400 #ffa800 #ff9b00 #ff8f00 #ff8200 #ff7600 #ff6900 #ff5c00 #ff5000 #ff4300 #ff3700 #ff2a00 #ff1e00 #ff1100 #ff0500 #ff0606 #ff1212 #ff1e1e #ff2a2a #ff3636 #ff4242 #ff4d4d #ff5959 #ff6565 #ff7171 #ff7d7d #ff8888 #ff9494 #ffa0a0 #ffacac #ffb8b8 #ffc3c3 #ffcfcf #ffdbdb #ffe7e7 #fff3f3}
+reportDensityMap
+setLayerPreference node_overlay -isVisible 1
+fit
+setLayerPreference node_overlay -isVisible 0
+report_timing -machine_readable -path_group reg2reg -max_paths 10 > foo.mtarpt 
+load_timing_debug_report foo.mtarpt
+highlight_timing_report -file foo.mtarpt -path 1 -noarrow
+highlight_timing_report {-file foo.mtarpt -path 1 -noarrow}
+fit
+dehighlight
+dehighlight
+dehighlight
+dehighlight
+highlight_timing_report -file foo.mtarpt -path 1 -noarrow
+highlight_timing_report {-file foo.mtarpt -path 1 -noarrow}
+zoomIn
+panPage 0 -1
+panPage -1 0
+panPage 1 0
+panPage -1 0
+report_timing -machine_readable -path_group in2reg -max_paths 10 > foo.mtarpt 
+load_timing_debug_report foo.mtarpt
+report_timing -machine_readable -path_group in2reg -max_paths 10 > foo.mtarpt 
+load_timing_debug_report foo.mtarpt
+highlight_timing_report -file foo.mtarpt -path 1 -noarrow
+highlight_timing_report {-file foo.mtarpt -path 1 -noarrow}
+fit
+report_timing -machine_readable -path_group reg2out -max_paths 10 > foo.mtarpt 
+load_timing_debug_report foo.mtarpt
+highlight_timing_report -file foo.mtarpt -path 1 -noarrow
+highlight_timing_report {-file foo.mtarpt -path 1 -noarrow}
+uiSetTool cutWire
+zoomIn
+zoomIn
+zoomOut
+panPage 1 0
+panPage 0 1
+panPage 0 1
+panPage 0 1
+panPage 0 1
+panPage 0 -1
+fit
+setLayerPreference densityMap -isVisible 1
+setDensityMapMode -gridInRow 10 -threshold 0.5 -displayStep 0.05
+setLayerPreference densityMap -color {#000066 #00006d #000074 #00007b #000082 #000089 #000090 #000097 #00009e #0000a5 #0000ac #0000b3 #0000bb #0000c2 #0000c9 #0000d0 #0000d7 #0000de #0000e5 #0000ec #0000f3 #0000fa #0005ff #0011ff #001eff #002aff #0037ff #0043ff #0050ff #005cff #0069ff #0076ff #0082ff #008fff #009bff #00a8ff #00b4ff #00c1ff #00cdff #00daff #00e7ff #00f3ff #00fefd #00f8f2 #00f2e6 #00ecda #00e6ce #00e0c2 #00dbb7 #00d5ab #00cf9f #00c993 #00c387 #00bd7c #00b770 #00b164 #00ab58 #00a54c #009f40 #009a35 #009429 #008e1d #008811 #008205 #058200 #118800 #1d8e00 #299400 #359a00 #409f00 #4ca500 #58ab00 #64b100 #70b700 #7cbd00 #87c300 #93c900 #9fcf00 #abd500 #b7db00 #c2e000 #cee600 #daec00 #e6f200 #f2f800 #fdfe00 #fff300 #ffe700 #ffda00 #ffcd00 #ffc100 #ffb400 #ffa800 #ff9b00 #ff8f00 #ff8200 #ff7600 #ff6900 #ff5c00 #ff5000 #ff4300 #ff3700 #ff2a00 #ff1e00 #ff1100 #ff0500 #ff0606 #ff1212 #ff1e1e #ff2a2a #ff3636 #ff4242 #ff4d4d #ff5959 #ff6565 #ff7171 #ff7d7d #ff8888 #ff9494 #ffa0a0 #ffacac #ffb8b8 #ffc3c3 #ffcfcf #ffdbdb #ffe7e7 #fff3f3}
+reportDensityMap
+setLayerPreference node_overlay -isVisible 1
+fit
+setLayerPreference node_overlay -isVisible 0
+setLayerPreference pinDensityMap -isVisible 1
+setPinDensityMapMode -gridInRow 10 -threshold 0.5 -displayStep 0.05
+setLayerPreference pinDensityMap -color {#000066 #00006d #000074 #00007b #000082 #000089 #000090 #000097 #00009e #0000a5 #0000ac #0000b3 #0000bb #0000c2 #0000c9 #0000d0 #0000d7 #0000de #0000e5 #0000ec #0000f3 #0000fa #0005ff #0011ff #001eff #002aff #0037ff #0043ff #0050ff #005cff #0069ff #0076ff #0082ff #008fff #009bff #00a8ff #00b4ff #00c1ff #00cdff #00daff #00e7ff #00f3ff #00fefd #00f8f2 #00f2e6 #00ecda #00e6ce #00e0c2 #00dbb7 #00d5ab #00cf9f #00c993 #00c387 #00bd7c #00b770 #00b164 #00ab58 #00a54c #009f40 #009a35 #009429 #008e1d #008811 #008205 #058200 #118800 #1d8e00 #299400 #359a00 #409f00 #4ca500 #58ab00 #64b100 #70b700 #7cbd00 #87c300 #93c900 #9fcf00 #abd500 #b7db00 #c2e000 #cee600 #daec00 #e6f200 #f2f800 #fdfe00 #fff300 #ffe700 #ffda00 #ffcd00 #ffc100 #ffb400 #ffa800 #ff9b00 #ff8f00 #ff8200 #ff7600 #ff6900 #ff5c00 #ff5000 #ff4300 #ff3700 #ff2a00 #ff1e00 #ff1100 #ff0500 #ff0606 #ff1212 #ff1e1e #ff2a2a #ff3636 #ff4242 #ff4d4d #ff5959 #ff6565 #ff7171 #ff7d7d #ff8888 #ff9494 #ffa0a0 #ffacac #ffb8b8 #ffc3c3 #ffcfcf #ffdbdb #ffe7e7 #fff3f3}
+reportPinDensityMap
+setLayerPreference node_overlay -isVisible 1
+fit
+setLayerPreference node_overlay -isVisible 0
+setLayerPreference groupmain_Congestion -isVisible 1
+setLayerPreference congestH -color {#000066 #0000c9 #0053ff #00fcfa #00a953 #53a900 #f9fc00 #ff5300 #ff5858 #ffffff}
+setLayerPreference congestV -color {#000066 #0000c9 #0053ff #00fcfa #00a953 #53a900 #f9fc00 #ff5300 #ff5858 #ffffff}
+setLayerPreference congestH -color {#000066 #0000c9 #0053ff #00fcfa #00a953 #53a900 #f9fc00 #ff5300 #ff5858 #ffffff}
+setLayerPreference congestV -color {#000066 #0000c9 #0053ff #00fcfa #00a953 #53a900 #f9fc00 #ff5300 #ff5858 #ffffff}
+setLayerPreference congestH -color {#000066 #0000c9 #0053ff #00fcfa #00a953 #53a900 #f9fc00 #ff5300 #ff5858 #ffffff}
+setLayerPreference congestV -color {#000066 #0000c9 #0053ff #00fcfa #00a953 #53a900 #f9fc00 #ff5300 #ff5858 #ffffff}
+zoomIn
+panPage -1 0
+panPage 0 -1
+panPage 0 -1
+panPage 0 -1
+panPage 0 -1
+panPage 0 1
+fit

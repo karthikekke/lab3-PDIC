@@ -1,0 +1,479 @@
+VERSION {1.0}
+PTDEF {instance} {pin} {cell} {edge} {clock_edge} {clock} {phase}
+BANNER
+  {Module} {ORCA_TOP}
+  {Timing} {LATE}
+  {Slew Propagation} {WORST}
+  {Operating Condition} {saed32hvt_ss0p75vn40c/%NOM_PVT}
+  {PVT Mode} {max}
+  {Tree Type} {worst_case}
+  {Process} {0.990}
+  {Voltage} {0.750}
+  {Temperature} {-40.000}
+  {time unit} {1.000 ns}
+  {capacitance unit} {1.000 fF}
+  {resistance unit} {1.000 MOhm}
+  {TOOL} {v19.16-s053_1 ((64bit) 08/31/2020 13:16 (Linux 2.6.32-431.11.2.el6.x86_64))}
+  {DATE} {April 25, 2023}
+END_BANNER
+PATH 1
+  VIEW  func_worst_scenario
+  CHECK_TYPE {Late External Delay Assertion}
+  REF {} {}
+  ENDPT {} {sd_DQ_out[23]} {} {^} {trailing} {SD_DDR_CLK} {SD_DDR_CLK(C)(P)(func_worst_scenario)*}
+  BEGINPT {I_SDRAM_TOP/I_SDRAM_IF/DQ_out_0_reg_23_} {Q} {DFFARX1_LVT} {^} {leading} {SDRAM_CLK} {SDRAM_CLK(D)(P)(func_worst_scenario)*}
+  REQ_CLC
+    {} {Other End Arrival Time} {2.050}
+    {-} {External Delay} {0.750}
+    {+} {Phase Shift} {0.000}
+    {-} {Uncertainty} {0.100}
+    {=} {Required Time} {1.200}
+  END_REQ_CLC
+  SLK_CLC
+    {-} {Arrival Time} {1.006}
+    {=} {Slack Time} {0.194}
+  END_SLK_CLC
+  SLK 0.194
+  ARR_CLC
+    {} {Clock Rise Edge} {0.000}
+    {=} {Beginpoint Arrival Time} {0.000}
+  END_ARR_CLC
+  LAUNCH_CLK_PATH
+    COLUMNS {instance} {fpin} {fedge} {tpin} {tedge} {net} {cell} {delay} {incr_delay} {slew} {load} {arrival} {required} {stolen} {fanout} {pin_location}
+    PORT {} {sdram_clk} {^} {} {} {sdram_clk} {} {} {} {0.200} {16.669} {0.000} {0.194} {} {9} {(570.00, 740.09) } 
+    NET {} {} {} {} {} {sdram_clk} {} {0.000} {0.000} {0.200} {16.669} {0.000} {0.194} {} {} {} 
+    INST {occ_int2/fast_clk_1_clkgt/u_icg} {CLK} {^} {GCLK} {^} {} {CGLNPRX2_LVT} {0.000} {0.000} {0.200} {} {0.000} {0.194} {} {1} {(549.33, 663.94) (546.74, 664.24)} 
+    NET {} {} {} {} {} {occ_int2/n8} {} {0.000} {0.000} {0.200} {0.613} {0.000} {0.194} {} {} {} 
+    INST {occ_int2/U2} {A1} {^} {Y} {^} {} {AO21X2_HVT} {0.000} {0.000} {0.200} {} {0.000} {0.194} {} {203} {(545.68, 664.70) (545.22, 664.54)} 
+    NET {} {} {} {} {} {sd_CK} {} {0.000} {0.000} {0.200} {333.215} {0.000} {0.194} {} {} {} 
+    INST {I_SDRAM_TOP/I_SDRAM_IF/clk_gate_mega_shift_0_reg_0_/latch} {CLK} {^} {GCLK} {^} {} {CGLPPRX2_LVT} {0.000} {0.000} {0.200} {} {0.000} {0.194} {} {1343} {(443.99, 449.92) (446.27, 450.07)} 
+    NET {} {} {} {} {} {I_SDRAM_TOP/I_SDRAM_IF/net23014} {} {0.000} {0.000} {0.200} {1428.174} {0.000} {0.194} {} {} {} 
+  END_LAUNCH_CLK_PATH 
+  DATA_PATH 
+    COLUMNS {instance} {fpin} {fedge} {tpin} {tedge} {net} {cell} {delay} {incr_delay} {slew} {load} {arrival} {required} {stolen} {fanout} {pin_location} 
+    INST {I_SDRAM_TOP/I_SDRAM_IF/DQ_out_0_reg_23_} {CLK} {^} {Q} {^} {} {DFFARX1_LVT} {0.358} {0.000} {0.098} {} {0.358} {0.552} {} {2} {(507.98, 612.10) (511.02, 613.47)} 
+    NET {} {} {} {} {} {I_SDRAM_TOP/I_SDRAM_IF/DQ_out_0[23]} {} {0.000} {0.000} {0.098} {4.909} {0.358} {0.552} {} {} {} 
+    INST {I_SDRAM_TOP/I_SDRAM_IF/U13016} {A4} {^} {Y} {^} {} {AO22X1_HVT} {0.443} {0.000} {0.175} {} {0.801} {0.995} {} {1} {(509.50, 644.33) (510.11, 643.87)} 
+    NET {} {} {} {} {} {I_SDRAM_TOP/I_SDRAM_IF/n11081} {} {0.002} {0.000} {0.003} {1.599} {0.804} {0.998} {} {} {} 
+    INST {I_SDRAM_TOP/I_SDRAM_IF/U833} {A} {^} {Y} {^} {} {NBUFFX4_HVT} {0.200} {0.000} {0.133} {} {1.004} {1.198} {} {1} {(510.72, 652.99) (511.02, 653.60)} 
+    NET {} {} {} {} {} {sd_DQ_out[23]} {} {0.002} {0.000} {0.003} {22.982} {1.006} {1.200} {} {} {} 
+  END_DATA_PATH
+  CAP_CLK_PATH
+    COLUMNS {instance} {fpin} {fedge} {tpin} {tedge} {net} {cell} {delay} {incr_delay} {slew} {load} {arrival} {required} {stolen} {fanout} {pin_location}
+  END_CAP_CLK_PATH
+END_PATH 1
+PATH 2
+  VIEW  func_worst_scenario
+  CHECK_TYPE {Late External Delay Assertion}
+  REF {} {}
+  ENDPT {} {sd_DQ_out[21]} {} {^} {trailing} {SD_DDR_CLK} {SD_DDR_CLK(C)(P)(func_worst_scenario)*}
+  BEGINPT {I_SDRAM_TOP/I_SDRAM_IF/DQ_out_0_reg_21_} {Q} {DFFARX1_LVT} {^} {leading} {SDRAM_CLK} {SDRAM_CLK(D)(P)(func_worst_scenario)*}
+  REQ_CLC
+    {} {Other End Arrival Time} {2.050}
+    {-} {External Delay} {0.750}
+    {+} {Phase Shift} {0.000}
+    {-} {Uncertainty} {0.100}
+    {=} {Required Time} {1.200}
+  END_REQ_CLC
+  SLK_CLC
+    {-} {Arrival Time} {1.006}
+    {=} {Slack Time} {0.194}
+  END_SLK_CLC
+  SLK 0.194
+  ARR_CLC
+    {} {Clock Rise Edge} {0.000}
+    {=} {Beginpoint Arrival Time} {0.000}
+  END_ARR_CLC
+  LAUNCH_CLK_PATH
+    COLUMNS {instance} {fpin} {fedge} {tpin} {tedge} {net} {cell} {delay} {incr_delay} {slew} {load} {arrival} {required} {stolen} {fanout} {pin_location}
+    PORT {} {sdram_clk} {^} {} {} {sdram_clk} {} {} {} {0.200} {16.669} {0.000} {0.194} {} {9} {(570.00, 740.09) } 
+    NET {} {} {} {} {} {sdram_clk} {} {0.000} {0.000} {0.200} {16.669} {0.000} {0.194} {} {} {} 
+    INST {occ_int2/fast_clk_1_clkgt/u_icg} {CLK} {^} {GCLK} {^} {} {CGLNPRX2_LVT} {0.000} {0.000} {0.200} {} {0.000} {0.194} {} {1} {(549.33, 663.94) (546.74, 664.24)} 
+    NET {} {} {} {} {} {occ_int2/n8} {} {0.000} {0.000} {0.200} {0.613} {0.000} {0.194} {} {} {} 
+    INST {occ_int2/U2} {A1} {^} {Y} {^} {} {AO21X2_HVT} {0.000} {0.000} {0.200} {} {0.000} {0.194} {} {203} {(545.68, 664.70) (545.22, 664.54)} 
+    NET {} {} {} {} {} {sd_CK} {} {0.000} {0.000} {0.200} {333.215} {0.000} {0.194} {} {} {} 
+    INST {I_SDRAM_TOP/I_SDRAM_IF/clk_gate_mega_shift_0_reg_0_/latch} {CLK} {^} {GCLK} {^} {} {CGLPPRX2_LVT} {0.000} {0.000} {0.200} {} {0.000} {0.194} {} {1343} {(443.99, 449.92) (446.27, 450.07)} 
+    NET {} {} {} {} {} {I_SDRAM_TOP/I_SDRAM_IF/net23014} {} {0.000} {0.000} {0.200} {1428.174} {0.000} {0.194} {} {} {} 
+  END_LAUNCH_CLK_PATH 
+  DATA_PATH 
+    COLUMNS {instance} {fpin} {fedge} {tpin} {tedge} {net} {cell} {delay} {incr_delay} {slew} {load} {arrival} {required} {stolen} {fanout} {pin_location} 
+    INST {I_SDRAM_TOP/I_SDRAM_IF/DQ_out_0_reg_21_} {CLK} {^} {Q} {^} {} {DFFARX1_LVT} {0.358} {0.000} {0.097} {} {0.358} {0.552} {} {2} {(510.26, 498.10) (513.30, 496.74)} 
+    NET {} {} {} {} {} {I_SDRAM_TOP/I_SDRAM_IF/DQ_out_0[21]} {} {0.000} {0.000} {0.097} {4.886} {0.358} {0.552} {} {} {} 
+    INST {I_SDRAM_TOP/I_SDRAM_IF/U13018} {A4} {^} {Y} {^} {} {AO22X1_HVT} {0.443} {0.000} {0.175} {} {0.801} {0.995} {} {1} {(526.38, 509.35) (525.77, 509.81)} 
+    NET {} {} {} {} {} {I_SDRAM_TOP/I_SDRAM_IF/n11077} {} {0.002} {0.000} {0.003} {0.738} {0.803} {0.998} {} {} {} 
+    INST {I_SDRAM_TOP/I_SDRAM_IF/U812} {A} {^} {Y} {^} {} {NBUFFX4_HVT} {0.200} {0.000} {0.133} {} {1.003} {1.198} {} {1} {(525.62, 510.72) (525.92, 510.11)} 
+    NET {} {} {} {} {} {sd_DQ_out[21]} {} {0.002} {0.000} {0.003} {35.908} {1.006} {1.200} {} {} {} 
+  END_DATA_PATH
+  CAP_CLK_PATH
+    COLUMNS {instance} {fpin} {fedge} {tpin} {tedge} {net} {cell} {delay} {incr_delay} {slew} {load} {arrival} {required} {stolen} {fanout} {pin_location}
+  END_CAP_CLK_PATH
+END_PATH 2
+PATH 3
+  VIEW  func_worst_scenario
+  CHECK_TYPE {Late External Delay Assertion}
+  REF {} {}
+  ENDPT {} {sd_DQ_out[11]} {} {^} {trailing} {SD_DDR_CLK} {SD_DDR_CLK(C)(P)(func_worst_scenario)*}
+  BEGINPT {I_SDRAM_TOP/I_SDRAM_IF/DQ_out_0_reg_11_} {Q} {DFFARX1_LVT} {^} {leading} {SDRAM_CLK} {SDRAM_CLK(D)(P)(func_worst_scenario)*}
+  REQ_CLC
+    {} {Other End Arrival Time} {2.050}
+    {-} {External Delay} {0.750}
+    {+} {Phase Shift} {0.000}
+    {-} {Uncertainty} {0.100}
+    {=} {Required Time} {1.200}
+  END_REQ_CLC
+  SLK_CLC
+    {-} {Arrival Time} {1.001}
+    {=} {Slack Time} {0.199}
+  END_SLK_CLC
+  SLK 0.199
+  ARR_CLC
+    {} {Clock Rise Edge} {0.000}
+    {=} {Beginpoint Arrival Time} {0.000}
+  END_ARR_CLC
+  LAUNCH_CLK_PATH
+    COLUMNS {instance} {fpin} {fedge} {tpin} {tedge} {net} {cell} {delay} {incr_delay} {slew} {load} {arrival} {required} {stolen} {fanout} {pin_location}
+    PORT {} {sdram_clk} {^} {} {} {sdram_clk} {} {} {} {0.200} {16.669} {0.000} {0.199} {} {9} {(570.00, 740.09) } 
+    NET {} {} {} {} {} {sdram_clk} {} {0.000} {0.000} {0.200} {16.669} {0.000} {0.199} {} {} {} 
+    INST {occ_int2/fast_clk_1_clkgt/u_icg} {CLK} {^} {GCLK} {^} {} {CGLNPRX2_LVT} {0.000} {0.000} {0.200} {} {0.000} {0.199} {} {1} {(549.33, 663.94) (546.74, 664.24)} 
+    NET {} {} {} {} {} {occ_int2/n8} {} {0.000} {0.000} {0.200} {0.613} {0.000} {0.199} {} {} {} 
+    INST {occ_int2/U2} {A1} {^} {Y} {^} {} {AO21X2_HVT} {0.000} {0.000} {0.200} {} {0.000} {0.199} {} {203} {(545.68, 664.70) (545.22, 664.54)} 
+    NET {} {} {} {} {} {sd_CK} {} {0.000} {0.000} {0.200} {333.215} {0.000} {0.199} {} {} {} 
+    INST {I_SDRAM_TOP/I_SDRAM_IF/clk_gate_mega_shift_0_reg_0_/latch} {CLK} {^} {GCLK} {^} {} {CGLPPRX2_LVT} {0.000} {0.000} {0.200} {} {0.000} {0.199} {} {1343} {(443.99, 449.92) (446.27, 450.07)} 
+    NET {} {} {} {} {} {I_SDRAM_TOP/I_SDRAM_IF/net23014} {} {0.000} {0.000} {0.200} {1428.174} {0.000} {0.199} {} {} {} 
+  END_LAUNCH_CLK_PATH 
+  DATA_PATH 
+    COLUMNS {instance} {fpin} {fedge} {tpin} {tedge} {net} {cell} {delay} {incr_delay} {slew} {load} {arrival} {required} {stolen} {fanout} {pin_location} 
+    INST {I_SDRAM_TOP/I_SDRAM_IF/DQ_out_0_reg_11_} {CLK} {^} {Q} {^} {} {DFFARX1_LVT} {0.356} {0.000} {0.094} {} {0.356} {0.555} {} {2} {(510.57, 618.79) (507.53, 620.16)} 
+    NET {} {} {} {} {} {I_SDRAM_TOP/I_SDRAM_IF/DQ_out_0[11]} {} {0.000} {0.000} {0.094} {4.616} {0.356} {0.555} {} {} {} 
+    INST {I_SDRAM_TOP/I_SDRAM_IF/U13028} {A4} {^} {Y} {^} {} {AO22X1_HVT} {0.440} {0.000} {0.175} {} {0.796} {0.995} {} {1} {(508.74, 646.46) (508.14, 646.91)} 
+    NET {} {} {} {} {} {I_SDRAM_TOP/I_SDRAM_IF/n11061} {} {0.002} {0.000} {0.003} {1.063} {0.798} {0.998} {} {} {} 
+    INST {I_SDRAM_TOP/I_SDRAM_IF/U744} {A} {^} {Y} {^} {} {NBUFFX4_HVT} {0.200} {0.000} {0.133} {} {0.998} {1.198} {} {1} {(507.83, 651.17) (508.14, 650.56)} 
+    NET {} {} {} {} {} {sd_DQ_out[11]} {} {0.002} {0.000} {0.003} {23.170} {1.001} {1.200} {} {} {} 
+  END_DATA_PATH
+  CAP_CLK_PATH
+    COLUMNS {instance} {fpin} {fedge} {tpin} {tedge} {net} {cell} {delay} {incr_delay} {slew} {load} {arrival} {required} {stolen} {fanout} {pin_location}
+  END_CAP_CLK_PATH
+END_PATH 3
+PATH 4
+  VIEW  func_worst_scenario
+  CHECK_TYPE {Late External Delay Assertion}
+  REF {} {}
+  ENDPT {} {sd_DQ_out[7]} {} {^} {trailing} {SD_DDR_CLK} {SD_DDR_CLK(C)(P)(func_worst_scenario)*}
+  BEGINPT {I_SDRAM_TOP/I_SDRAM_IF/DQ_out_0_reg_7_} {Q} {DFFARX1_LVT} {^} {leading} {SDRAM_CLK} {SDRAM_CLK(D)(P)(func_worst_scenario)*}
+  REQ_CLC
+    {} {Other End Arrival Time} {2.050}
+    {-} {External Delay} {0.750}
+    {+} {Phase Shift} {0.000}
+    {-} {Uncertainty} {0.100}
+    {=} {Required Time} {1.200}
+  END_REQ_CLC
+  SLK_CLC
+    {-} {Arrival Time} {0.999}
+    {=} {Slack Time} {0.201}
+  END_SLK_CLC
+  SLK 0.201
+  ARR_CLC
+    {} {Clock Rise Edge} {0.000}
+    {=} {Beginpoint Arrival Time} {0.000}
+  END_ARR_CLC
+  LAUNCH_CLK_PATH
+    COLUMNS {instance} {fpin} {fedge} {tpin} {tedge} {net} {cell} {delay} {incr_delay} {slew} {load} {arrival} {required} {stolen} {fanout} {pin_location}
+    PORT {} {sdram_clk} {^} {} {} {sdram_clk} {} {} {} {0.200} {16.669} {0.000} {0.201} {} {9} {(570.00, 740.09) } 
+    NET {} {} {} {} {} {sdram_clk} {} {0.000} {0.000} {0.200} {16.669} {0.000} {0.201} {} {} {} 
+    INST {occ_int2/fast_clk_1_clkgt/u_icg} {CLK} {^} {GCLK} {^} {} {CGLNPRX2_LVT} {0.000} {0.000} {0.200} {} {0.000} {0.201} {} {1} {(549.33, 663.94) (546.74, 664.24)} 
+    NET {} {} {} {} {} {occ_int2/n8} {} {0.000} {0.000} {0.200} {0.613} {0.000} {0.201} {} {} {} 
+    INST {occ_int2/U2} {A1} {^} {Y} {^} {} {AO21X2_HVT} {0.000} {0.000} {0.200} {} {0.000} {0.201} {} {203} {(545.68, 664.70) (545.22, 664.54)} 
+    NET {} {} {} {} {} {sd_CK} {} {0.000} {0.000} {0.200} {333.215} {0.000} {0.201} {} {} {} 
+    INST {I_SDRAM_TOP/I_SDRAM_IF/clk_gate_mega_shift_0_reg_0_/latch} {CLK} {^} {GCLK} {^} {} {CGLPPRX2_LVT} {0.000} {0.000} {0.200} {} {0.000} {0.201} {} {1343} {(443.99, 449.92) (446.27, 450.07)} 
+    NET {} {} {} {} {} {I_SDRAM_TOP/I_SDRAM_IF/net23014} {} {0.000} {0.000} {0.200} {1428.174} {0.000} {0.201} {} {} {} 
+  END_LAUNCH_CLK_PATH 
+  DATA_PATH 
+    COLUMNS {instance} {fpin} {fedge} {tpin} {tedge} {net} {cell} {delay} {incr_delay} {slew} {load} {arrival} {required} {stolen} {fanout} {pin_location} 
+    INST {I_SDRAM_TOP/I_SDRAM_IF/DQ_out_0_reg_7_} {CLK} {^} {Q} {^} {} {DFFARX1_LVT} {0.355} {0.000} {0.093} {} {0.355} {0.556} {} {2} {(506.92, 611.80) (509.96, 610.43)} 
+    NET {} {} {} {} {} {I_SDRAM_TOP/I_SDRAM_IF/DQ_out_0[7]} {} {0.000} {0.000} {0.093} {4.550} {0.355} {0.556} {} {} {} 
+    INST {I_SDRAM_TOP/I_SDRAM_IF/U13032} {A4} {^} {Y} {^} {} {AO22X1_HVT} {0.439} {0.000} {0.175} {} {0.795} {0.995} {} {1} {(509.96, 643.11) (509.35, 643.57)} 
+    NET {} {} {} {} {} {I_SDRAM_TOP/I_SDRAM_IF/n11064} {} {0.002} {0.000} {0.003} {1.408} {0.797} {0.998} {} {} {} 
+    INST {I_SDRAM_TOP/I_SDRAM_IF/U748} {A} {^} {Y} {^} {} {NBUFFX4_HVT} {0.200} {0.000} {0.133} {} {0.997} {1.198} {} {1} {(509.35, 651.17) (509.66, 650.56)} 
+    NET {} {} {} {} {} {sd_DQ_out[7]} {} {0.002} {0.000} {0.003} {22.779} {0.999} {1.200} {} {} {} 
+  END_DATA_PATH
+  CAP_CLK_PATH
+    COLUMNS {instance} {fpin} {fedge} {tpin} {tedge} {net} {cell} {delay} {incr_delay} {slew} {load} {arrival} {required} {stolen} {fanout} {pin_location}
+  END_CAP_CLK_PATH
+END_PATH 4
+PATH 5
+  VIEW  func_worst_scenario
+  CHECK_TYPE {Late External Delay Assertion}
+  REF {} {}
+  ENDPT {} {sd_DQ_out[15]} {} {^} {trailing} {SD_DDR_CLK} {SD_DDR_CLK(C)(P)(func_worst_scenario)*}
+  BEGINPT {I_SDRAM_TOP/I_SDRAM_IF/DQ_out_0_reg_15_} {Q} {DFFARX1_LVT} {^} {leading} {SDRAM_CLK} {SDRAM_CLK(D)(P)(func_worst_scenario)*}
+  REQ_CLC
+    {} {Other End Arrival Time} {2.050}
+    {-} {External Delay} {0.750}
+    {+} {Phase Shift} {0.000}
+    {-} {Uncertainty} {0.100}
+    {=} {Required Time} {1.200}
+  END_REQ_CLC
+  SLK_CLC
+    {-} {Arrival Time} {0.998}
+    {=} {Slack Time} {0.202}
+  END_SLK_CLC
+  SLK 0.202
+  ARR_CLC
+    {} {Clock Rise Edge} {0.000}
+    {=} {Beginpoint Arrival Time} {0.000}
+  END_ARR_CLC
+  LAUNCH_CLK_PATH
+    COLUMNS {instance} {fpin} {fedge} {tpin} {tedge} {net} {cell} {delay} {incr_delay} {slew} {load} {arrival} {required} {stolen} {fanout} {pin_location}
+    PORT {} {sdram_clk} {^} {} {} {sdram_clk} {} {} {} {0.200} {16.669} {0.000} {0.202} {} {9} {(570.00, 740.09) } 
+    NET {} {} {} {} {} {sdram_clk} {} {0.000} {0.000} {0.200} {16.669} {0.000} {0.202} {} {} {} 
+    INST {occ_int2/fast_clk_1_clkgt/u_icg} {CLK} {^} {GCLK} {^} {} {CGLNPRX2_LVT} {0.000} {0.000} {0.200} {} {0.000} {0.202} {} {1} {(549.33, 663.94) (546.74, 664.24)} 
+    NET {} {} {} {} {} {occ_int2/n8} {} {0.000} {0.000} {0.200} {0.613} {0.000} {0.202} {} {} {} 
+    INST {occ_int2/U2} {A1} {^} {Y} {^} {} {AO21X2_HVT} {0.000} {0.000} {0.200} {} {0.000} {0.202} {} {203} {(545.68, 664.70) (545.22, 664.54)} 
+    NET {} {} {} {} {} {sd_CK} {} {0.000} {0.000} {0.200} {333.215} {0.000} {0.202} {} {} {} 
+    INST {I_SDRAM_TOP/I_SDRAM_IF/clk_gate_mega_shift_0_reg_0_/latch} {CLK} {^} {GCLK} {^} {} {CGLPPRX2_LVT} {0.000} {0.000} {0.200} {} {0.000} {0.202} {} {1343} {(443.99, 449.92) (446.27, 450.07)} 
+    NET {} {} {} {} {} {I_SDRAM_TOP/I_SDRAM_IF/net23014} {} {0.000} {0.000} {0.200} {1428.174} {0.000} {0.202} {} {} {} 
+  END_LAUNCH_CLK_PATH 
+  DATA_PATH 
+    COLUMNS {instance} {fpin} {fedge} {tpin} {tedge} {net} {cell} {delay} {incr_delay} {slew} {load} {arrival} {required} {stolen} {fanout} {pin_location} 
+    INST {I_SDRAM_TOP/I_SDRAM_IF/DQ_out_0_reg_15_} {CLK} {^} {Q} {^} {} {DFFARX1_LVT} {0.354} {0.000} {0.092} {} {0.354} {0.556} {} {2} {(511.48, 618.49) (508.44, 617.12)} 
+    NET {} {} {} {} {} {I_SDRAM_TOP/I_SDRAM_IF/DQ_out_0[15]} {} {0.000} {0.000} {0.092} {4.487} {0.355} {0.556} {} {} {} 
+    INST {I_SDRAM_TOP/I_SDRAM_IF/U13024} {A4} {^} {Y} {^} {} {AO22X1_HVT} {0.439} {0.000} {0.175} {} {0.793} {0.995} {} {1} {(512.24, 644.33) (512.85, 643.87)} 
+    NET {} {} {} {} {} {I_SDRAM_TOP/I_SDRAM_IF/n11050} {} {0.002} {0.000} {0.003} {0.989} {0.796} {0.998} {} {} {} 
+    INST {I_SDRAM_TOP/I_SDRAM_IF/U583} {A} {^} {Y} {^} {} {NBUFFX4_HVT} {0.200} {0.000} {0.133} {} {0.996} {1.198} {} {1} {(512.85, 647.82) (513.15, 647.22)} 
+    NET {} {} {} {} {} {sd_DQ_out[15]} {} {0.002} {0.000} {0.003} {23.177} {0.998} {1.200} {} {} {} 
+  END_DATA_PATH
+  CAP_CLK_PATH
+    COLUMNS {instance} {fpin} {fedge} {tpin} {tedge} {net} {cell} {delay} {incr_delay} {slew} {load} {arrival} {required} {stolen} {fanout} {pin_location}
+  END_CAP_CLK_PATH
+END_PATH 5
+PATH 6
+  VIEW  func_worst_scenario
+  CHECK_TYPE {Late External Delay Assertion}
+  REF {} {}
+  ENDPT {} {sd_DQ_out[27]} {} {^} {trailing} {SD_DDR_CLK} {SD_DDR_CLK(C)(P)(func_worst_scenario)*}
+  BEGINPT {I_SDRAM_TOP/I_SDRAM_IF/DQ_out_0_reg_27_} {Q} {DFFARX1_LVT} {^} {leading} {SDRAM_CLK} {SDRAM_CLK(D)(P)(func_worst_scenario)*}
+  REQ_CLC
+    {} {Other End Arrival Time} {2.050}
+    {-} {External Delay} {0.750}
+    {+} {Phase Shift} {0.000}
+    {-} {Uncertainty} {0.100}
+    {=} {Required Time} {1.200}
+  END_REQ_CLC
+  SLK_CLC
+    {-} {Arrival Time} {0.998}
+    {=} {Slack Time} {0.202}
+  END_SLK_CLC
+  SLK 0.202
+  ARR_CLC
+    {} {Clock Rise Edge} {0.000}
+    {=} {Beginpoint Arrival Time} {0.000}
+  END_ARR_CLC
+  LAUNCH_CLK_PATH
+    COLUMNS {instance} {fpin} {fedge} {tpin} {tedge} {net} {cell} {delay} {incr_delay} {slew} {load} {arrival} {required} {stolen} {fanout} {pin_location}
+    PORT {} {sdram_clk} {^} {} {} {sdram_clk} {} {} {} {0.200} {16.669} {0.000} {0.202} {} {9} {(570.00, 740.09) } 
+    NET {} {} {} {} {} {sdram_clk} {} {0.000} {0.000} {0.200} {16.669} {0.000} {0.202} {} {} {} 
+    INST {occ_int2/fast_clk_1_clkgt/u_icg} {CLK} {^} {GCLK} {^} {} {CGLNPRX2_LVT} {0.000} {0.000} {0.200} {} {0.000} {0.202} {} {1} {(549.33, 663.94) (546.74, 664.24)} 
+    NET {} {} {} {} {} {occ_int2/n8} {} {0.000} {0.000} {0.200} {0.613} {0.000} {0.202} {} {} {} 
+    INST {occ_int2/U2} {A1} {^} {Y} {^} {} {AO21X2_HVT} {0.000} {0.000} {0.200} {} {0.000} {0.202} {} {203} {(545.68, 664.70) (545.22, 664.54)} 
+    NET {} {} {} {} {} {sd_CK} {} {0.000} {0.000} {0.200} {333.215} {0.000} {0.202} {} {} {} 
+    INST {I_SDRAM_TOP/I_SDRAM_IF/clk_gate_mega_shift_0_reg_0_/latch} {CLK} {^} {GCLK} {^} {} {CGLPPRX2_LVT} {0.000} {0.000} {0.200} {} {0.000} {0.202} {} {1343} {(443.99, 449.92) (446.27, 450.07)} 
+    NET {} {} {} {} {} {I_SDRAM_TOP/I_SDRAM_IF/net23014} {} {0.000} {0.000} {0.200} {1428.174} {0.000} {0.202} {} {} {} 
+  END_LAUNCH_CLK_PATH 
+  DATA_PATH 
+    COLUMNS {instance} {fpin} {fedge} {tpin} {tedge} {net} {cell} {delay} {incr_delay} {slew} {load} {arrival} {required} {stolen} {fanout} {pin_location} 
+    INST {I_SDRAM_TOP/I_SDRAM_IF/DQ_out_0_reg_27_} {CLK} {^} {Q} {^} {} {DFFARX1_LVT} {0.354} {0.000} {0.092} {} {0.354} {0.556} {} {2} {(511.33, 615.45) (514.37, 616.82)} 
+    NET {} {} {} {} {} {I_SDRAM_TOP/I_SDRAM_IF/DQ_out_0[27]} {} {0.000} {0.000} {0.092} {4.461} {0.354} {0.557} {} {} {} 
+    INST {I_SDRAM_TOP/I_SDRAM_IF/U13012} {A4} {^} {Y} {^} {} {AO22X1_HVT} {0.439} {0.000} {0.175} {} {0.793} {0.995} {} {1} {(514.98, 640.98) (515.58, 640.53)} 
+    NET {} {} {} {} {} {I_SDRAM_TOP/I_SDRAM_IF/n11073} {} {0.002} {0.000} {0.003} {1.040} {0.795} {0.998} {} {} {} 
+    INST {I_SDRAM_TOP/I_SDRAM_IF/U799} {A} {^} {Y} {^} {} {NBUFFX4_HVT} {0.200} {0.000} {0.133} {} {0.995} {1.198} {} {1} {(516.80, 642.96) (517.10, 643.57)} 
+    NET {} {} {} {} {} {sd_DQ_out[27]} {} {0.002} {0.000} {0.003} {22.203} {0.998} {1.200} {} {} {} 
+  END_DATA_PATH
+  CAP_CLK_PATH
+    COLUMNS {instance} {fpin} {fedge} {tpin} {tedge} {net} {cell} {delay} {incr_delay} {slew} {load} {arrival} {required} {stolen} {fanout} {pin_location}
+  END_CAP_CLK_PATH
+END_PATH 6
+PATH 7
+  VIEW  func_worst_scenario
+  CHECK_TYPE {Late External Delay Assertion}
+  REF {} {}
+  ENDPT {} {sd_DQ_out[19]} {} {^} {trailing} {SD_DDR_CLK} {SD_DDR_CLK(C)(P)(func_worst_scenario)*}
+  BEGINPT {I_SDRAM_TOP/I_SDRAM_IF/DQ_out_0_reg_19_} {Q} {DFFARX1_LVT} {^} {leading} {SDRAM_CLK} {SDRAM_CLK(D)(P)(func_worst_scenario)*}
+  REQ_CLC
+    {} {Other End Arrival Time} {2.050}
+    {-} {External Delay} {0.750}
+    {+} {Phase Shift} {0.000}
+    {-} {Uncertainty} {0.100}
+    {=} {Required Time} {1.200}
+  END_REQ_CLC
+  SLK_CLC
+    {-} {Arrival Time} {0.993}
+    {=} {Slack Time} {0.207}
+  END_SLK_CLC
+  SLK 0.207
+  ARR_CLC
+    {} {Clock Rise Edge} {0.000}
+    {=} {Beginpoint Arrival Time} {0.000}
+  END_ARR_CLC
+  LAUNCH_CLK_PATH
+    COLUMNS {instance} {fpin} {fedge} {tpin} {tedge} {net} {cell} {delay} {incr_delay} {slew} {load} {arrival} {required} {stolen} {fanout} {pin_location}
+    PORT {} {sdram_clk} {^} {} {} {sdram_clk} {} {} {} {0.200} {16.669} {0.000} {0.207} {} {9} {(570.00, 740.09) } 
+    NET {} {} {} {} {} {sdram_clk} {} {0.000} {0.000} {0.200} {16.669} {0.000} {0.207} {} {} {} 
+    INST {occ_int2/fast_clk_1_clkgt/u_icg} {CLK} {^} {GCLK} {^} {} {CGLNPRX2_LVT} {0.000} {0.000} {0.200} {} {0.000} {0.207} {} {1} {(549.33, 663.94) (546.74, 664.24)} 
+    NET {} {} {} {} {} {occ_int2/n8} {} {0.000} {0.000} {0.200} {0.613} {0.000} {0.207} {} {} {} 
+    INST {occ_int2/U2} {A1} {^} {Y} {^} {} {AO21X2_HVT} {0.000} {0.000} {0.200} {} {0.000} {0.207} {} {203} {(545.68, 664.70) (545.22, 664.54)} 
+    NET {} {} {} {} {} {sd_CK} {} {0.000} {0.000} {0.200} {333.215} {0.000} {0.207} {} {} {} 
+    INST {I_SDRAM_TOP/I_SDRAM_IF/clk_gate_mega_shift_0_reg_0_/latch} {CLK} {^} {GCLK} {^} {} {CGLPPRX2_LVT} {0.000} {0.000} {0.200} {} {0.000} {0.207} {} {1343} {(443.99, 449.92) (446.27, 450.07)} 
+    NET {} {} {} {} {} {I_SDRAM_TOP/I_SDRAM_IF/net23014} {} {0.000} {0.000} {0.200} {1428.174} {0.000} {0.207} {} {} {} 
+  END_LAUNCH_CLK_PATH 
+  DATA_PATH 
+    COLUMNS {instance} {fpin} {fedge} {tpin} {tedge} {net} {cell} {delay} {incr_delay} {slew} {load} {arrival} {required} {stolen} {fanout} {pin_location} 
+    INST {I_SDRAM_TOP/I_SDRAM_IF/DQ_out_0_reg_19_} {CLK} {^} {Q} {^} {} {DFFARX1_LVT} {0.352} {0.000} {0.089} {} {0.352} {0.559} {} {2} {(504.94, 625.18) (501.90, 623.81)} 
+    NET {} {} {} {} {} {I_SDRAM_TOP/I_SDRAM_IF/DQ_out_0[19]} {} {0.000} {0.000} {0.089} {4.238} {0.352} {0.559} {} {} {} 
+    INST {I_SDRAM_TOP/I_SDRAM_IF/U13020} {A4} {^} {Y} {^} {} {AO22X1_HVT} {0.436} {0.000} {0.175} {} {0.789} {0.995} {} {1} {(510.26, 646.46) (510.87, 646.91)} 
+    NET {} {} {} {} {} {I_SDRAM_TOP/I_SDRAM_IF/n11049} {} {0.002} {0.000} {0.003} {0.731} {0.791} {0.998} {} {} {} 
+    INST {I_SDRAM_TOP/I_SDRAM_IF/U328} {A} {^} {Y} {^} {} {NBUFFX4_HVT} {0.200} {0.000} {0.133} {} {0.991} {1.198} {} {1} {(511.63, 646.30) (511.94, 646.91)} 
+    NET {} {} {} {} {} {sd_DQ_out[19]} {} {0.002} {0.000} {0.003} {23.559} {0.993} {1.200} {} {} {} 
+  END_DATA_PATH
+  CAP_CLK_PATH
+    COLUMNS {instance} {fpin} {fedge} {tpin} {tedge} {net} {cell} {delay} {incr_delay} {slew} {load} {arrival} {required} {stolen} {fanout} {pin_location}
+  END_CAP_CLK_PATH
+END_PATH 7
+PATH 8
+  VIEW  func_worst_scenario
+  CHECK_TYPE {Late External Delay Assertion}
+  REF {} {}
+  ENDPT {} {sd_DQ_out[3]} {} {^} {trailing} {SD_DDR_CLK} {SD_DDR_CLK(C)(P)(func_worst_scenario)*}
+  BEGINPT {I_SDRAM_TOP/I_SDRAM_IF/DQ_out_0_reg_3_} {Q} {DFFARX1_LVT} {^} {leading} {SDRAM_CLK} {SDRAM_CLK(D)(P)(func_worst_scenario)*}
+  REQ_CLC
+    {} {Other End Arrival Time} {2.050}
+    {-} {External Delay} {0.750}
+    {+} {Phase Shift} {0.000}
+    {-} {Uncertainty} {0.100}
+    {=} {Required Time} {1.200}
+  END_REQ_CLC
+  SLK_CLC
+    {-} {Arrival Time} {0.991}
+    {=} {Slack Time} {0.209}
+  END_SLK_CLC
+  SLK 0.209
+  ARR_CLC
+    {} {Clock Rise Edge} {0.000}
+    {=} {Beginpoint Arrival Time} {0.000}
+  END_ARR_CLC
+  LAUNCH_CLK_PATH
+    COLUMNS {instance} {fpin} {fedge} {tpin} {tedge} {net} {cell} {delay} {incr_delay} {slew} {load} {arrival} {required} {stolen} {fanout} {pin_location}
+    PORT {} {sdram_clk} {^} {} {} {sdram_clk} {} {} {} {0.200} {16.669} {0.000} {0.209} {} {9} {(570.00, 740.09) } 
+    NET {} {} {} {} {} {sdram_clk} {} {0.000} {0.000} {0.200} {16.669} {0.000} {0.209} {} {} {} 
+    INST {occ_int2/fast_clk_1_clkgt/u_icg} {CLK} {^} {GCLK} {^} {} {CGLNPRX2_LVT} {0.000} {0.000} {0.200} {} {0.000} {0.209} {} {1} {(549.33, 663.94) (546.74, 664.24)} 
+    NET {} {} {} {} {} {occ_int2/n8} {} {0.000} {0.000} {0.200} {0.613} {0.000} {0.209} {} {} {} 
+    INST {occ_int2/U2} {A1} {^} {Y} {^} {} {AO21X2_HVT} {0.000} {0.000} {0.200} {} {0.000} {0.209} {} {203} {(545.68, 664.70) (545.22, 664.54)} 
+    NET {} {} {} {} {} {sd_CK} {} {0.000} {0.000} {0.200} {333.215} {0.000} {0.209} {} {} {} 
+    INST {I_SDRAM_TOP/I_SDRAM_IF/clk_gate_mega_shift_0_reg_0_/latch} {CLK} {^} {GCLK} {^} {} {CGLPPRX2_LVT} {0.000} {0.000} {0.200} {} {0.000} {0.209} {} {1343} {(443.99, 449.92) (446.27, 450.07)} 
+    NET {} {} {} {} {} {I_SDRAM_TOP/I_SDRAM_IF/net23014} {} {0.000} {0.000} {0.200} {1428.174} {0.000} {0.209} {} {} {} 
+  END_LAUNCH_CLK_PATH 
+  DATA_PATH 
+    COLUMNS {instance} {fpin} {fedge} {tpin} {tedge} {net} {cell} {delay} {incr_delay} {slew} {load} {arrival} {required} {stolen} {fanout} {pin_location} 
+    INST {I_SDRAM_TOP/I_SDRAM_IF/DQ_out_0_reg_3_} {CLK} {^} {Q} {^} {} {DFFARX1_LVT} {0.351} {0.000} {0.088} {} {0.351} {0.560} {} {2} {(509.35, 621.83) (512.39, 620.46)} 
+    NET {} {} {} {} {} {I_SDRAM_TOP/I_SDRAM_IF/DQ_out_0[3]} {} {0.000} {0.000} {0.088} {4.135} {0.351} {0.560} {} {} {} 
+    INST {I_SDRAM_TOP/I_SDRAM_IF/U13036} {A4} {^} {Y} {^} {} {AO22X1_HVT} {0.435} {0.000} {0.175} {} {0.787} {0.995} {} {1} {(514.82, 643.11) (515.43, 643.57)} 
+    NET {} {} {} {} {} {I_SDRAM_TOP/I_SDRAM_IF/n11067} {} {0.002} {0.000} {0.003} {0.991} {0.789} {0.998} {} {} {} 
+    INST {I_SDRAM_TOP/I_SDRAM_IF/U756} {A} {^} {Y} {^} {} {NBUFFX4_HVT} {0.200} {0.000} {0.133} {} {0.989} {1.198} {} {1} {(518.93, 642.96) (519.23, 643.57)} 
+    NET {} {} {} {} {} {sd_DQ_out[3]} {} {0.002} {0.000} {0.003} {21.654} {0.991} {1.200} {} {} {} 
+  END_DATA_PATH
+  CAP_CLK_PATH
+    COLUMNS {instance} {fpin} {fedge} {tpin} {tedge} {net} {cell} {delay} {incr_delay} {slew} {load} {arrival} {required} {stolen} {fanout} {pin_location}
+  END_CAP_CLK_PATH
+END_PATH 8
+PATH 9
+  VIEW  func_worst_scenario
+  CHECK_TYPE {Late External Delay Assertion}
+  REF {} {}
+  ENDPT {} {sd_DQ_out[18]} {} {^} {trailing} {SD_DDR_CLK} {SD_DDR_CLK(C)(P)(func_worst_scenario)*}
+  BEGINPT {I_SDRAM_TOP/I_SDRAM_IF/DQ_out_0_reg_18_} {Q} {DFFARX1_LVT} {^} {leading} {SDRAM_CLK} {SDRAM_CLK(D)(P)(func_worst_scenario)*}
+  REQ_CLC
+    {} {Other End Arrival Time} {2.050}
+    {-} {External Delay} {0.750}
+    {+} {Phase Shift} {0.000}
+    {-} {Uncertainty} {0.100}
+    {=} {Required Time} {1.200}
+  END_REQ_CLC
+  SLK_CLC
+    {-} {Arrival Time} {0.991}
+    {=} {Slack Time} {0.209}
+  END_SLK_CLC
+  SLK 0.209
+  ARR_CLC
+    {} {Clock Rise Edge} {0.000}
+    {=} {Beginpoint Arrival Time} {0.000}
+  END_ARR_CLC
+  LAUNCH_CLK_PATH
+    COLUMNS {instance} {fpin} {fedge} {tpin} {tedge} {net} {cell} {delay} {incr_delay} {slew} {load} {arrival} {required} {stolen} {fanout} {pin_location}
+    PORT {} {sdram_clk} {^} {} {} {sdram_clk} {} {} {} {0.200} {16.669} {0.000} {0.209} {} {9} {(570.00, 740.09) } 
+    NET {} {} {} {} {} {sdram_clk} {} {0.000} {0.000} {0.200} {16.669} {0.000} {0.209} {} {} {} 
+    INST {occ_int2/fast_clk_1_clkgt/u_icg} {CLK} {^} {GCLK} {^} {} {CGLNPRX2_LVT} {0.000} {0.000} {0.200} {} {0.000} {0.209} {} {1} {(549.33, 663.94) (546.74, 664.24)} 
+    NET {} {} {} {} {} {occ_int2/n8} {} {0.000} {0.000} {0.200} {0.613} {0.000} {0.209} {} {} {} 
+    INST {occ_int2/U2} {A1} {^} {Y} {^} {} {AO21X2_HVT} {0.000} {0.000} {0.200} {} {0.000} {0.209} {} {203} {(545.68, 664.70) (545.22, 664.54)} 
+    NET {} {} {} {} {} {sd_CK} {} {0.000} {0.000} {0.200} {333.215} {0.000} {0.209} {} {} {} 
+    INST {I_SDRAM_TOP/I_SDRAM_IF/clk_gate_mega_shift_0_reg_0_/latch} {CLK} {^} {GCLK} {^} {} {CGLPPRX2_LVT} {0.000} {0.000} {0.200} {} {0.000} {0.209} {} {1343} {(443.99, 449.92) (446.27, 450.07)} 
+    NET {} {} {} {} {} {I_SDRAM_TOP/I_SDRAM_IF/net23014} {} {0.000} {0.000} {0.200} {1428.174} {0.000} {0.209} {} {} {} 
+  END_LAUNCH_CLK_PATH 
+  DATA_PATH 
+    COLUMNS {instance} {fpin} {fedge} {tpin} {tedge} {net} {cell} {delay} {incr_delay} {slew} {load} {arrival} {required} {stolen} {fanout} {pin_location} 
+    INST {I_SDRAM_TOP/I_SDRAM_IF/DQ_out_0_reg_18_} {CLK} {^} {Q} {^} {} {DFFARX1_LVT} {0.351} {0.000} {0.088} {} {0.351} {0.560} {} {2} {(511.63, 625.18) (514.67, 623.81)} 
+    NET {} {} {} {} {} {I_SDRAM_TOP/I_SDRAM_IF/DQ_out_0[18]} {} {0.000} {0.000} {0.088} {4.120} {0.351} {0.560} {} {} {} 
+    INST {I_SDRAM_TOP/I_SDRAM_IF/U13021} {A4} {^} {Y} {^} {} {AO22X1_HVT} {0.435} {0.000} {0.175} {} {0.786} {0.995} {} {1} {(520.60, 639.77) (521.21, 640.22)} 
+    NET {} {} {} {} {} {I_SDRAM_TOP/I_SDRAM_IF/n11083} {} {0.002} {0.000} {0.003} {1.683} {0.789} {0.998} {} {} {} 
+    INST {I_SDRAM_TOP/I_SDRAM_IF/U842} {A} {^} {Y} {^} {} {NBUFFX4_HVT} {0.200} {0.000} {0.133} {} {0.989} {1.198} {} {1} {(531.85, 639.62) (532.15, 640.22)} 
+    NET {} {} {} {} {} {sd_DQ_out[18]} {} {0.002} {0.000} {0.003} {21.293} {0.991} {1.200} {} {} {} 
+  END_DATA_PATH
+  CAP_CLK_PATH
+    COLUMNS {instance} {fpin} {fedge} {tpin} {tedge} {net} {cell} {delay} {incr_delay} {slew} {load} {arrival} {required} {stolen} {fanout} {pin_location}
+  END_CAP_CLK_PATH
+END_PATH 9
+PATH 10
+  VIEW  func_worst_scenario
+  CHECK_TYPE {Late External Delay Assertion}
+  REF {} {}
+  ENDPT {} {sd_DQ_out[10]} {} {^} {trailing} {SD_DDR_CLK} {SD_DDR_CLK(C)(P)(func_worst_scenario)*}
+  BEGINPT {I_SDRAM_TOP/I_SDRAM_IF/DQ_out_0_reg_10_} {Q} {DFFARX1_LVT} {^} {leading} {SDRAM_CLK} {SDRAM_CLK(D)(P)(func_worst_scenario)*}
+  REQ_CLC
+    {} {Other End Arrival Time} {2.050}
+    {-} {External Delay} {0.750}
+    {+} {Phase Shift} {0.000}
+    {-} {Uncertainty} {0.100}
+    {=} {Required Time} {1.200}
+  END_REQ_CLC
+  SLK_CLC
+    {-} {Arrival Time} {0.988}
+    {=} {Slack Time} {0.212}
+  END_SLK_CLC
+  SLK 0.212
+  ARR_CLC
+    {} {Clock Rise Edge} {0.000}
+    {=} {Beginpoint Arrival Time} {0.000}
+  END_ARR_CLC
+  LAUNCH_CLK_PATH
+    COLUMNS {instance} {fpin} {fedge} {tpin} {tedge} {net} {cell} {delay} {incr_delay} {slew} {load} {arrival} {required} {stolen} {fanout} {pin_location}
+    PORT {} {sdram_clk} {^} {} {} {sdram_clk} {} {} {} {0.200} {16.669} {0.000} {0.212} {} {9} {(570.00, 740.09) } 
+    NET {} {} {} {} {} {sdram_clk} {} {0.000} {0.000} {0.200} {16.669} {0.000} {0.212} {} {} {} 
+    INST {occ_int2/fast_clk_1_clkgt/u_icg} {CLK} {^} {GCLK} {^} {} {CGLNPRX2_LVT} {0.000} {0.000} {0.200} {} {0.000} {0.212} {} {1} {(549.33, 663.94) (546.74, 664.24)} 
+    NET {} {} {} {} {} {occ_int2/n8} {} {0.000} {0.000} {0.200} {0.613} {0.000} {0.212} {} {} {} 
+    INST {occ_int2/U2} {A1} {^} {Y} {^} {} {AO21X2_HVT} {0.000} {0.000} {0.200} {} {0.000} {0.212} {} {203} {(545.68, 664.70) (545.22, 664.54)} 
+    NET {} {} {} {} {} {sd_CK} {} {0.000} {0.000} {0.200} {333.215} {0.000} {0.212} {} {} {} 
+    INST {I_SDRAM_TOP/I_SDRAM_IF/clk_gate_mega_shift_0_reg_0_/latch} {CLK} {^} {GCLK} {^} {} {CGLPPRX2_LVT} {0.000} {0.000} {0.200} {} {0.000} {0.212} {} {1343} {(443.99, 449.92) (446.27, 450.07)} 
+    NET {} {} {} {} {} {I_SDRAM_TOP/I_SDRAM_IF/net23014} {} {0.000} {0.000} {0.200} {1428.174} {0.000} {0.212} {} {} {} 
+  END_LAUNCH_CLK_PATH 
+  DATA_PATH 
+    COLUMNS {instance} {fpin} {fedge} {tpin} {tedge} {net} {cell} {delay} {incr_delay} {slew} {load} {arrival} {required} {stolen} {fanout} {pin_location} 
+    INST {I_SDRAM_TOP/I_SDRAM_IF/DQ_out_0_reg_10_} {CLK} {^} {Q} {^} {} {DFFARX1_LVT} {0.350} {0.000} {0.086} {} {0.350} {0.561} {} {2} {(520.30, 625.48) (517.26, 626.85)} 
+    NET {} {} {} {} {} {I_SDRAM_TOP/I_SDRAM_IF/DQ_out_0[10]} {} {0.000} {0.000} {0.086} {3.972} {0.350} {0.561} {} {} {} 
+    INST {I_SDRAM_TOP/I_SDRAM_IF/U13029} {A4} {^} {Y} {^} {} {AO22X1_HVT} {0.434} {0.000} {0.175} {} {0.784} {0.995} {} {1} {(531.85, 637.64) (532.46, 637.18)} 
+    NET {} {} {} {} {} {I_SDRAM_TOP/I_SDRAM_IF/n11076} {} {0.002} {0.000} {0.003} {1.356} {0.786} {0.998} {} {} {} 
+    INST {I_SDRAM_TOP/I_SDRAM_IF/U802} {A} {^} {Y} {^} {} {NBUFFX4_HVT} {0.200} {0.000} {0.133} {} {0.986} {1.198} {} {1} {(537.17, 639.62) (537.47, 640.22)} 
+    NET {} {} {} {} {} {sd_DQ_out[10]} {} {0.002} {0.000} {0.003} {21.503} {0.988} {1.200} {} {} {} 
+  END_DATA_PATH
+  CAP_CLK_PATH
+    COLUMNS {instance} {fpin} {fedge} {tpin} {tedge} {net} {cell} {delay} {incr_delay} {slew} {load} {arrival} {required} {stolen} {fanout} {pin_location}
+  END_CAP_CLK_PATH
+END_PATH 10
+
